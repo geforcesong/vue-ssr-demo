@@ -15,8 +15,8 @@ class BaseController {
         this.next = next;
     }
 
-    rendering(app) {
-        renderer.renderToString(app, (err, html) => {
+    rendering(app, templateContext) {
+        renderer.renderToString(app, templateContext, (err, html) => {
             if (err) {
                 this.res.status(500).end('Internal Server Error')
                 return

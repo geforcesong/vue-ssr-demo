@@ -10,11 +10,18 @@ class HomeController extends BaseController {
         this.initialize(req, res, next);
         const app = new Vue({
             data: {
-              url: req.url
+                url: req.url
             },
             template: `<div>the url is {{url}}</div>`
-          })
-        this.rendering(app);
+        });
+        const templateContext = {
+            title: 'home page',
+            meta: `
+                <meta property="og:type" content="property list">
+                <meta property="og:site_name" content="Movoto">
+            `
+        }
+        this.rendering(app, templateContext);
     }
 }
 
