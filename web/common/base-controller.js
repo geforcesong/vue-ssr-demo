@@ -1,4 +1,8 @@
-const renderer = require('vue-server-renderer').createRenderer();
+const fs = require('fs');
+const vrenderer = require('vue-server-renderer');
+const renderer = vrenderer.createRenderer({
+    template: fs.readFileSync(__dirname + '/templates/index.template.html', 'utf-8')
+});
 
 class BaseController {
     constructor() {
@@ -17,13 +21,7 @@ class BaseController {
                 this.res.status(500).end('Internal Server Error')
                 return
             }
-            this.res.end(`
-              <!DOCTYPE html>
-              <html lang="en">
-                <head><title>Hello</title></head>
-                <body>${html}</body>
-              </html>
-            `)
+            this.res.end(html);
         });
     }
 }
