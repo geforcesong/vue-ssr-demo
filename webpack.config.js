@@ -1,4 +1,5 @@
 var path = require('path')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 var webpack = require('webpack')
 
 module.exports = {
@@ -11,48 +12,23 @@ module.exports = {
         filename: '[name].server.bundle.js',
         libraryTarget: 'commonjs2'
     },
-    externals: Object.keys(require('./package.json').dependencies),
     module: {
         rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader'
-                ],
-            },
-            {
-                test: /\.scss$/,
-                use: [
-                    'vue-style-loader',
-                    'css-loader',
-                    'sass-loader'
-                ],
-            },
             {
                 test: /\.vue$/,
                 loader: 'vue-loader',
                 options: {
-                    loaders: {
-                        'scss': [
-                            'vue-style-loader',
-                            'css-loader',
-                            'sass-loader'
-                        ]
-                    }
+                    extractCSS: true,
+                    scss: ExtractTextPlugin.extract({
+                        use: 'css-loader!sass-loader',
+                        fallback: 'vue-style-loader'
+                    })
                 }
             },
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/
-            },
-            {
-                test: /\.(png|jpg|gif|svg)$/,
-                loader: 'file-loader',
-                options: {
-                    name: '[name].[ext]?[hash]'
-                }
             }
         ]
     },
@@ -62,6 +38,9 @@ module.exports = {
         },
         extensions: ['*', '.js', '.vue', '.json']
     },
-    devtool: false
+    devtool: false,
+    plugins: [
+        new ExtractTextPlugin({ filename: 'common.[chunkhash].css' })
+    ]
 }
 

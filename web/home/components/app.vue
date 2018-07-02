@@ -18,9 +18,9 @@
         }
     };
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 p {
     background-color: gray;
-    color:yellow
+    color:pink;
 }
 </style>
