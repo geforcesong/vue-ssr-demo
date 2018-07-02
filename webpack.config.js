@@ -40,7 +40,7 @@ module.exports = {
     },
     devtool: false,
     plugins: [
-        new ExtractTextPlugin({ filename: 'common.[chunkhash].css' })
+        new ExtractTextPlugin({ filename: 'common.css' })
     ]
 }
 

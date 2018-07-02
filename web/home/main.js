@@ -6,7 +6,8 @@ export function createApp(data) {
     const app = new Vue({
         render: h => h(App, {
             props: {
-                tempDataText: data.text
+                tempDataText: data.text,
+                hideSubHeader: false
             }
         })
     });

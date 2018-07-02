@@ -1,29 +1,28 @@
 <template>
-    <div id="app">
+    <div>
+        <vheader :showSubHeader="!hideSubHeader"></vheader>
         Hello World app.vue file!
         <p>
             bla...
         </p>
         <p>{{ homeText }}</p>
         <div>{{tempDataText}}</div>
+        <div>{{hideSubHeader}}</div>
     </div>
 </template>
 <script>
+    import vheader from '../../common/components/header.vue';
     export default {
-        props: ['tempDataText'],
+        created(){
+        },
+        props: ['tempDataText', 'hideSubHeader'],
         data() {
             return {
                 homeText: 'Home Component'
             };
+        },
+        components: {
+            vheader
         }
     };
 </script>
-<style lang="scss" scoped>
-p {
-    background-color: gray;
-    color:pink;
-}
-div {
-    color: red;
-}
-</style>
