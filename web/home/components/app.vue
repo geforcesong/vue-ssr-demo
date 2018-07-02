@@ -5,10 +5,12 @@
             bla...
         </p>
         <p>{{ homeText }}</p>
+        <div>{{tempDataText}}</div>
     </div>
 </template>
 <script>
     export default {
+        props: ['tempDataText'],
         data() {
             return {
                 homeText: 'Home Component'
