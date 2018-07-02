@@ -4,9 +4,15 @@
         <p>
             bla...
         </p>
+        <p>{{ homeText }}</p>
     </div>
 </template>
 <script>
     export default {
+        data() {
+            return {
+                homeText: 'Home Component'
+            };
+        }
     };
 </script>
