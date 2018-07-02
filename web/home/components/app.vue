@@ -18,3 +18,9 @@
         }
     };
 </script>
+<style lang="scss" scoped>
+p {
+    background-color: gray;
+    color:yellow
+}
+</style>
