@@ -15,7 +15,7 @@ class HomeController extends BaseController {
         //     },
         //     template: `<div>the url is {{url}}</div>`
         // });
-        bundle.default({ url: req.url, text: 'This is text from home page model.' }).then((app)=>{
+        bundle.default({ text: 'This is text from home page model.' }).then((app)=>{
             const templateContext = {
                 title: 'home page',
                 meta: `
