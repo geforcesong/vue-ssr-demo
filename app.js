@@ -1,9 +1,11 @@
 const express = require('express');
 const routes = require("./configuration/routes");
+const path = require('path');
 
 class Server {
     constructor() {
         this.app = express();
+        this.app.use(express.static(path.join(__dirname, 'dist')));
         new routes(this.app);
     }
 

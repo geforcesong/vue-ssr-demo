@@ -13,7 +13,7 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.header{
+.vheader{
     background-color: yellow;
     color: red;
 }
