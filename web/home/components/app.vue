@@ -15,6 +15,9 @@
     export default {
         created(){
         },
+        mounted(){
+            alert('abc')
+        },
         props: ['tempDataText', 'hideSubHeader'],
         data() {
             return {

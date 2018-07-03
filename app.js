@@ -6,6 +6,7 @@ class Server {
     constructor() {
         this.app = express();
         this.app.use(express.static(path.join(__dirname, 'dist')));
+        this.app.use(express.static(path.join(__dirname, 'public')));
         new routes(this.app);
     }
 
