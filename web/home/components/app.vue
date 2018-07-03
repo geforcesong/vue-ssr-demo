@@ -5,7 +5,7 @@
         <p>
             bla...
         </p>
-        <p>{{ homeText }}</p>
+        <p style="color:pink;">{{ homeText }}</p>
         <div>{{tempDataText}}</div>
         <div>{{hideSubHeader}}</div>
     </div>

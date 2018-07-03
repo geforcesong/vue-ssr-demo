@@ -1,7 +1,9 @@
 var path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var webpack = require('webpack')
+const WebpackShellPlugin = require('webpack-shell-plugin');
+
+var commands = [];
+commands.push(`node-sass ./web/home/styles/home-inline.scss ./web/home/styles/home-inline.css --output-style compressed`);
 
 module.exports = {
     target: 'node',
@@ -41,7 +43,11 @@ module.exports = {
     },
     devtool: false,
     plugins: [
-        new ExtractTextPlugin({ filename: 'common.css' })
+        new ExtractTextPlugin({ filename: 'common.css' }),
+        new WebpackShellPlugin({
+            onBuildStart: commands,
+            onBuildEnd: []
+        })
     ]
 }
 

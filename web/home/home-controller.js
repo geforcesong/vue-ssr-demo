@@ -1,5 +1,6 @@
 const BaseController = require("../common/base-controller");
 const Vue = require('vue');
+const fs = require('fs');
 const bundle =  require('../../dist/home.server.bundle.js');
 class HomeController extends BaseController {
     constructor() {
@@ -20,7 +21,12 @@ class HomeController extends BaseController {
                 meta: `
                     <meta property="og:type" content="property list">
                     <meta property="og:site_name" content="Movoto">
-                `
+                `,
+                inlineStyle: ``
+            }
+            const inlineStyle = fs.readFileSync(__dirname + '/styles/home-inline.css', 'utf-8');
+            if (inlineStyle) {
+                templateContext.inlineStyle = `<style type="text/css">${inlineStyle}</style>`;
             }
             this.rendering(app, templateContext);
         })

@@ -15,7 +15,8 @@
   "dependencies": {
     "express": "^4.16.3",
     "vue": "^2.5.16",
-    "vue-server-renderer": "^2.5.16"
+    "vue-server-renderer": "^2.5.16",
+    "webpack-shell-plugin": "^0.5.0"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

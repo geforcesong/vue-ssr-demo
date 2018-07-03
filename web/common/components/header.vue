@@ -5,7 +5,6 @@
             this is sub header.
         </p>
     </div>
-    
 </template>
 <script>
 export default {
