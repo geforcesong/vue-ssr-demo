@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack && node app.js",
+    "start": "webpack && webpack --config ./webpack.client.config.js && node app.js",
     "client": "webpack --config ./webpack.client.config.js"
   },
   "repository": {
