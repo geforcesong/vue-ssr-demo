@@ -1,12 +1,12 @@
 <template>
-    <div>
+    <div id="app">
         <vheader :showSubHeader="!hideSubHeader"></vheader>
         Hello World app.vue file!
         <p style="background-color:red" v-on:click="greet">
             bla...
         </p>
         <p style="color:pink;">{{ homeText }}</p>
-        <div >{{tempDataText}}</div>
+        <div styel="color:blue">{{tempDataText}}</div>
         <div>{{hideSubHeader}}</div>
     </div>
 </template>
@@ -16,7 +16,7 @@
         created(){
         },
         mounted(){
-            alert('abc')
+            console.log('abc')
         },
         methods: {
             greet: function (event) {
