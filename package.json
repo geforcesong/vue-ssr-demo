@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack && webpack --config ./webpack.client.config.js && node app.js",
-    "client": "webpack --config ./webpack.client.config.js"
+    "start": "webpack --config ./webpack.server.config.js && webpack --config ./webpack.client.config.js && node app.js",
+    "client": "webpack --config ./webpack.client.config.js",
+    "server": "webpack --config ./webpack.server.config.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "sass-loader": "^6.0.6",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
-    "webpack": "^3.6.0"
+    "webpack": "^3.6.0",
+    "webpack-merge": "^4.1.3"
   }
 }
