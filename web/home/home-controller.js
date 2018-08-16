@@ -1,7 +1,14 @@
 const BaseController = require("../common/base-controller");
 const Vue = require('vue');
 const fs = require('fs');
-const bundle =  require('../../dist/home.server.bundle.js');
+const path = require('path');
+const template = fs.readFileSync(path.resolve(__dirname, '..', 'common/templates/index.template.html'), 'utf-8')
+const { createBundleRenderer } = require('vue-server-renderer');
+const renderer = createBundleRenderer(require('../../dist/vue-ssr-server-bundle.json'), {
+    // ……renderer 的其他选项
+    template
+})
+
 class HomeController extends BaseController {
     constructor() {
         super();
@@ -9,27 +16,18 @@ class HomeController extends BaseController {
 
     loadView(req, res, next) {
         this.initialize(req, res, next);
-        // const app = new Vue({
-        //     data: {
-        //         url: req.url
-        //     },
-        //     template: `<div>the url is {{url}}</div>`
-        // });
-        bundle.default({ text: 'This is text from home page model.' }).then((app)=>{
-            const templateContext = {
-                title: 'home page',
-                meta: `
-                    <meta property="og:type" content="property list">
-                    <meta property="og:site_name" content="Movoto">
-                `,
-                inlineStyle: ``
-            }
-            const inlineStyle = fs.readFileSync(__dirname + '/styles/home-inline.css', 'utf-8');
-            if (inlineStyle) {
-                templateContext.inlineStyle = `<style type="text/css">${inlineStyle}</style>`;
-            }
-            this.rendering(app, templateContext);
-        })
+        const templateContext = {
+            title: 'home page 1111',
+            meta: `
+                <meta property="og:type" content="property list">
+                <meta property="og:site_name" content="Movoto">
+            `,
+            text: 'you are are are .....'
+        }
+        renderer.renderToString(templateContext, (err, html) => {
+            // 处理异常……
+            res.end(html)
+        });
     }
 }
 

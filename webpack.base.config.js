@@ -28,6 +28,7 @@ module.exports = function () {
             },
             extensions: ['*', '.js', '.vue', '.json']
         },
+        devtool: 'source-map',
         plugins: [
             new ExtractTextPlugin({ filename: 'common.css' })
         ]
