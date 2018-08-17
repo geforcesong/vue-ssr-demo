@@ -12,7 +12,7 @@ module.exports = function () {
                     test: /\.s?css$/,
                     use: ExtractTextPlugin.extract({
                         fallback: 'vue-style-loader',
-                        use: [{ loader: 'css-loader', options: { minimize: true } }, 'sass-loader']
+                        use: [{ loader: 'css-loader', options: { minimize: false } }, 'sass-loader']
                     })
                 }, {
                     test: /\.js$/,

@@ -11,10 +11,7 @@ export default {
     props: ['showSubHeader']
 };
 </script>
-<style lang="scss" scoped>
-.vheader{
-    background-color: yellow;
-    color: red;
-}
+<style lang="scss">
+    @import "./header.scss";
 </style>
 
