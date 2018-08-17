@@ -10,7 +10,7 @@ export function createApp(data) {
     const store = createStore();
     
     sync(store, router)
-    store.state.model = data;
+    store.state.model = data || {};
 
     const app = new Vue({
         router,

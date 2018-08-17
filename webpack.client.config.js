@@ -4,7 +4,7 @@ var path = require('path');
 
 module.exports = merge(base(true), {
     entry: {
-        home: './web/home/client/_main.js'
+        site: './web/common/vclient/entry-client.js'
     },
     output: {
         path: path.resolve(__dirname, './public'),
