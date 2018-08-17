@@ -26,3 +26,9 @@ export default {
     }
 }
 </script>
+<style>
+p{
+    background-color: gray;
+}
+</style>
+

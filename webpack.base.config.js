@@ -29,7 +29,7 @@ module.exports = function () {
         },
         plugins: [
             new VueLoaderPlugin(),
-            new ExtractTextPlugin({ filename: 'common.css', allChunks: true })
+            new ExtractTextPlugin({ filename: '[name].common.css', allChunks: true })
         ]
     }
 }
