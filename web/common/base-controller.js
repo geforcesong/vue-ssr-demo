@@ -1,8 +1,9 @@
 const fs = require('fs');
-const vrenderer = require('vue-server-renderer');
-const renderer = vrenderer.createRenderer({
-    template: fs.readFileSync(__dirname + '/templates/index.template.html', 'utf-8')
-});
+const template = fs.readFileSync(__dirname + '/templates/index.template.html', 'utf-8')
+const { createBundleRenderer } = require('vue-server-renderer');
+const renderer = createBundleRenderer(require('../../dist/vue-ssr-server-bundle.json'), {
+    template
+})
 
 class BaseController {
     constructor() {
@@ -15,11 +16,12 @@ class BaseController {
         this.next = next;
     }
 
-    rendering(app, templateContext) {
-        renderer.renderToString(app, templateContext, (err, html) => {
+    renderPage(model) {
+        renderer.renderToString(model, (err, html) => {
             if (err) {
                 console.log(err);
-                this.res.status(500).end('Internal Server Error')
+                let code = err && err.code || 500;
+                this.res.status(code).end('Internal Server Error')
                 return;
             }
             this.res.end(html);
