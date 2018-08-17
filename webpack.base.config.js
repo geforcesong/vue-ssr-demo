@@ -1,24 +1,22 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 module.exports = function () {
     return {
         module: {
             rules: [
                 {
                     test: /\.vue$/,
-                    loader: 'vue-loader',
-                    options: {
-                        extractCSS: true,
-                        scss: ExtractTextPlugin.extract({
-                            use: 'css-loader!sass-loader',
-                            fallback: 'vue-style-loader'
-                        })
-                    }
+                    loader: 'vue-loader'
                 },
                 {
+                    test: /\.s?css$/,
+                    use: ExtractTextPlugin.extract({
+                        fallback: 'vue-style-loader',
+                        use: [{ loader: 'css-loader', options: { minimize: true } }, 'sass-loader']
+                    })
+                }, {
                     test: /\.js$/,
-                    loader: 'babel-loader',
-                    exclude: /node_modules/
+                    loader: 'babel-loader'
                 }
             ]
         },
@@ -30,6 +28,7 @@ module.exports = function () {
             extensions: ['*', '.js', '.vue', '.json']
         },
         plugins: [
+            new VueLoaderPlugin(),
             new ExtractTextPlugin({ filename: 'common.css' })
         ]
     }

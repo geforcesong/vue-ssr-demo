@@ -20,6 +20,7 @@ class BaseController {
         renderer.renderToString(model, (err, html) => {
             if (err) {
                 console.log(err);
+                console.log(model.requestUrlRaw);
                 let code = err && err.code || 500;
                 this.res.status(code).end('Internal Server Error')
                 return;

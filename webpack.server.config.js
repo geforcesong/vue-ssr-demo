@@ -3,8 +3,6 @@ const base = require('./webpack.base.config.js');
 const WebpackShellPlugin = require('webpack-shell-plugin');
 const path = require('path');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
-const commands = [];
-commands.push(`node-sass ./web/home/styles/home-inline.scss ./web/home/styles/home-inline.css --output-style compressed`);
 
 module.exports = merge(base(true), {
     target: 'node',
@@ -17,10 +15,6 @@ module.exports = merge(base(true), {
         libraryTarget: 'commonjs2'
     },
     plugins: [
-        new WebpackShellPlugin({
-            onBuildStart: commands,
-            onBuildEnd: []
-        }),
         new VueSSRServerPlugin()
     ]
 });

@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Home from '../home/components/app.vue';
-import About from '../about/components/about.vue';
+// import Home from '../home/components/app.vue';
+// import About from '../about/components/about.vue';
 
 Vue.use(Router);
 export default () => {
@@ -11,12 +11,12 @@ export default () => {
             {
                 path: '/',
                 name: 'home',
-                component: Home
+                component: () => import(/* webpackChunkName: "home" */ '../home/components/app.vue')
             },
             {
                 path: '/about',
                 name: 'about',
-                component: About
+                component: () => import(/* webpackChunkName: "about" */ '../about/components/about.vue')
             }
         ]
     });

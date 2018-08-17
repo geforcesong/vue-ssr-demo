@@ -8,7 +8,8 @@ module.exports = merge(base(true), {
     },
     output: {
         path: path.resolve(__dirname, './public'),
-        filename: '[name].client.bundle.js'
+        filename: '[name].client.bundle.js',
+        chunkFilename: '[name].chunk.bundle.js'
     },
     devtool: false
 });
