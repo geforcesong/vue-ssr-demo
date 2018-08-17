@@ -1,7 +1,7 @@
-const HomeController = require('../web/home/home-controller');
+const CommonController = require('../web/common/common-controller');
 class SiteRouter {
     constructor(app) {
-        this.setRoute(app, '/', new HomeController());
+        this.setRoute(app, '*', new CommonController());
     }
 
     setRoute(app, path, controller, controllerName) {

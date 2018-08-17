@@ -9,7 +9,7 @@ commands.push(`node-sass ./web/home/styles/home-inline.scss ./web/home/styles/ho
 module.exports = merge(base(true), {
     target: 'node',
     entry: {
-        home: './web/home/entry-server.js'
+        site: './web/common/vserver/entry-server.js'
     },
     output: {
         path: path.resolve(__dirname, './dist'),
