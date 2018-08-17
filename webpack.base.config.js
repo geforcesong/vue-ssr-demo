@@ -22,6 +22,7 @@ module.exports = function () {
                 }
             ]
         },
+        devtool: 'source-map',
         resolve: {
             alias: {
                 'vue$': 'vue/dist/vue.esm.js'

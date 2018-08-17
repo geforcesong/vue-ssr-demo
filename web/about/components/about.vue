@@ -16,6 +16,7 @@ export default {
             return this.$store.state.storeName
         },
         model(){
+            // console.log(this.$store.state.route);
             return this.$store.state.model
         }
     }
