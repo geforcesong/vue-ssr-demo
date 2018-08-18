@@ -2,7 +2,9 @@ const merge = require('webpack-merge');
 const base = require('./webpack.base.config.js');
 var path = require('path');
 
-module.exports = merge(base(true), {
+module.exports = merge(base({
+    isServer: false
+}), {
     entry: {
         site: './web/common/vclient/entry-client.js'
     },

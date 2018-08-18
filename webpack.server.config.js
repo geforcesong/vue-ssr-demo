@@ -4,7 +4,9 @@ const WebpackShellPlugin = require('webpack-shell-plugin');
 const path = require('path');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
 
-module.exports = merge(base(true), {
+module.exports = merge(base({
+    isServer: true
+}), {
     target: 'node',
     entry: {
         site: './web/common/vserver/entry-server.js'

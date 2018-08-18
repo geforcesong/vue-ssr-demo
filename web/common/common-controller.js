@@ -17,7 +17,8 @@ class CommonController extends BaseController {
                 <meta property="og:site_name" content="Movoto">
             `,
             text: 'you are are are .....',
-            requestUrlRaw: req.path
+            requestUrlRaw: req.path,
+            pageName: req.path === '/' ? 'home' : 'about'
         }
         this.renderPage(model)
     }
