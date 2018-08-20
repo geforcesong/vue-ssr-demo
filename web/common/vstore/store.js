@@ -8,6 +8,12 @@ export function createStore () {
   return new Vuex.Store({
     state: {
       storeName : 'bla.........'
+    },
+    mutations: {
+      setText (state, text) {
+        console.log('i am in mutations');
+        state.storeName = text;
+      }
     }
   })
 }

@@ -11,6 +11,7 @@ export function createApp(data) {
     
     sync(store, router)
     store.state.model = data || {};
+    store.commit('setText','heheheheheh');
 
     const app = new Vue({
         router,
