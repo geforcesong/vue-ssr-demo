@@ -28,7 +28,7 @@
             load(){
                 console.log('show load');
                 this.loadcomp1 = true;
-                Vue.component('async-example', () => import('./comp1'));
+                Vue.component('async-example', () => import(/* webpackChunkName: "comp1" */'./comp1'));
                 Vue.component('async-example1', () => import('./comp2'));
             }
         },
