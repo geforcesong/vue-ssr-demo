@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack --config ./webpack.server.config.js && webpack --config ./webpack.client.config.js && node app.js",
-    "vclient": "webpack --config ./webpack.client.config.js",
+    "vclient": "webpack --config ./webpack.client.config.js && node app.js",
     "vserver": "webpack --config ./webpack.server.config.js && node app.js"
   },
   "repository": {
