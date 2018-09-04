@@ -10,6 +10,7 @@
         <div>{{hideSubHeader}}</div>
         <button v-on:click="load">test</button>
         <div><async-example v-if="loadcomp1"></async-example></div>
+        <div><async-example1 v-if="loadcomp1"></async-example1></div>
     </div>
 </template>
 <script>
@@ -28,6 +29,7 @@
                 console.log('show load');
                 this.loadcomp1 = true;
                 Vue.component('async-example', () => import('./comp1'));
+                Vue.component('async-example1', () => import('./comp2'));
             }
         },
         props: ['tempDataText', 'hideSubHeader'],
