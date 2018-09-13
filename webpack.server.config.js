@@ -2,8 +2,9 @@ const merge = require('webpack-merge');
 const base = require('./webpack.base.config.js');
 const WebpackShellPlugin = require('webpack-shell-plugin');
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
-
+// process.traceDeprecation = true;
 module.exports = merge(base({
     isServer: true
 }), {
@@ -18,5 +19,6 @@ module.exports = merge(base({
     },
     plugins: [
         new VueSSRServerPlugin()
-    ]
+    ],
+    externals: [nodeExternals()]
 });
